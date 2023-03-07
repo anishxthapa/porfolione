@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+    />
+
+    <!-- Torus Kit `.css` file -->
+    <link rel="stylesheet" href="./assets/css/style.min.css" />
+
+    <!-- Torus Kit `.js` file -->
+    <script src="./assets/js/toruskit.min.js"></script>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <title>Anish Thapa</title>
+  </head>
+
+  <body class="">
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!-- Navigation -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+    <nav class="navbar navbar-expand-lg fixed-top bg-white">
+      <div class="container">
+        <!-- NAV Logo -->
+        <a class="navbar-brand" href="">
+          <img src="./assets/img/logo.png" height="20" alt="Logo" />
+        </a>
+
+        <!-- Togglers -->
+        <div class="d-flex ms-auto order-lg-1">
+          <!-- Top navigation toggler -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#topNavbar"
+            aria-controls="topNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="bi bi-three-dots-vertical"></i>
+          </button>
+
+          <!-- Offscreen navigation toggler -->
+          <button
+            class="btn shadow-no position-relative center-both text-dark"
+            id="off-toggler"
+            type="button"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            data-tor="click:class.toggle(active, {target: body})"
+          >
+            <!-- <i class="bi bi-list h4 mb-0 z-index-1 center-both"></i> -->
+            <i
+              class="bi bi-arrow-left-short position-absolute d-flex"
+              data-tor="hover(#off-toggler):reveal(left) delay(100ms) quad"
+            ></i>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              data-tor-group="path => hover(#off-toggler):scaleX.to(0) originX(0%) quad delay(/+100ms/);"
+            >
+              <path
+                fill="currentColor"
+                d="M2.5 4c0-.3.2-.5.5-.5h10c.3 0 .5.2.5.5s-.2.5-.5.5H3c-.3 0-.5-.2-.5-.5z"
+              />
+              <path
+                fill="currentColor"
+                d="M2.5 8c0-.3.2-.5.5-.5h10c.3 0 .5.2.5.5s-.2.5-.5.5H3c-.3 0-.5-.2-.5-.5z"
+              />
+              <path
+                fill="currentColor"
+                d="M2.5 12c0-.3.2-.5.5-.5h10c.3 0 .5.2.5.5s-.2.5-.5.5H3c-.3 0-.5-.2-.5-.5z"
+              />
+            </svg>
+            <span
+              class="circle circle-md position-absolute bg-opacity-10"
+              data-tor="hover(#off-toggler):[bg(dark) scale.from(0)]"
+            ></span>
+          </button>
+        </div>
+
+        <!-- Navigation -->
+        <div class="collapse navbar-collapse small order-lg-0" id="topNavbar">
+          <ul
+            class="navbar-nav d-flex w-100 justify-content-evenly px-2 px-lg-7 links-dark"
+          >
+            <li class="nav-item">
+              <a class="nav-link" href="#">Call me - (+977)9824065758</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">anishthapa171@gmail.com</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.linkedin.com/in/thapaanish/"
+                >Linkedin
+                <i class="bbi bi-linkedin text-primary"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Offscreen backdrop -->
+    <div
+      id="offscreen-backdrop"
+      class="z-index-master w-h-100 fixed-top bg-black bg-opacity-50"
+      data-tor="active(body):[fade.in @pointer-events(none;auto)] click:class.remove(active, {target: body})"
+    ></div>
+
+    <!-- Offscreen navigation -->
+    <nav
+      id="offscreen-nav"
+      class="overflow-auto position-fixed z-index-master end-0 bg-white shadow w-80 w-sm-auto p-5 pe-8 h-100"
+      data-tor="active(body):pull.left(full)"
+    >
+      <button
+        type="button"
+        class="btn-close position-absolute top-0 end-0 m-3"
+        data-tor="click:class.remove(active, {target: body})"
+        aria-label="Close"
+      ></button>
+      <ul
+        class="nav flex-column links-dark nav-style-opacity nav-style-hover-primary"
+        data-tor-group="
+      .nav-item => active(body):[fade.in pull.left(sm)] delay(/25ms+25ms/) slow;
+      .nav-link => hover:push.right(xs) quad;
+    "
+      >
+        <li class="nav-item">
+          <a class="nav-link transition-unset" href="#home">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link transition-unset" href="#skills">Skills</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link transition-unset" href="#experience">Experience</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link transition-unset" href="#portfolio">Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link transition-unset" href="#contact">Connect</a>
+        </li>
+     
+      </ul>
+    </nav>
+
+    <main id="main-content">
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+      <!-- HERO-->
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+      <section id="home">
+        <div class="container">
+          <div class="row row-cols-1 row-cols-md-2 center-v min-vh-100">
+            <!-- left -->
+            <div class="col my-3">
+              <!-- Badge -->
+              <div
+                class="title-badge d-inline-block mb-6 bg-primary text-primary bg-opacity-10 px-3 small"
+              >
+                About me
+              </div>
+              <!-- Title -->
+              <h1 class="mb-5">
+                <span data-tor="inview:reveal(up) bounce slow">Hi,</span>
+                <br />
+                <span data-tor="inview:reveal(up) bounce slow delay(.5s)"
+                  >I'm</span
+                >
+                <span
+                  data-tor="inview:reveal(up) bounce slow delay(.6s)"
+                  class="text-primary"
+                  >Anish</span> <span
+                class="text-body text-opacity-30 ms-n1"
+                data-tor="loop:blink"
+                >|</span>
+
+                
+              </h1>
+              <!-- Subtitle -->
+              <h2
+                class="h3 font-sans-serif fw-normal text-secondary text-darken-xl mb-3"
+              >
+                Web Developer
+              </h2>
+              <!-- Description -->
+              <p class="text-body w-80 mb-6"data-tor-parent="hover">
+                I work with strategy, emotion, imagery, and creative expression.
+                <span class="text-secondary text-darken-xl"
+                  >I enjoy enhancing both the little and significant aspects of things.</span
+                >
+
+                <i
+                class="bi bi-arrow-right ms-auto text-body"
+                data-tor="hover(p):[fade.in pull.right(sm)]"
+              ></i>
+              </p>
+              <!-- CTA -->
+              <!-- <button
+                class="btn btn-primary btn-arrow py-2 px-3 mb-4"
+                data-tor="hover:[bg(transparent) text(primary)]"
+              >
+                Hire me
+              </button> -->
+             
+            </div>
+            <!-- end .col -->
+
+            <!-- Right Illustration -->
+            <div class="col">
+              <a href="">
+                <img src="assets/img/23232.png" style='width:100%;' border="0" alt="Null">
+              </a>
+            </div>
+            <!-- end .col -->
+          </div>
+          <!-- end .row -->
+        </div>
+        <!-- .container -->
+      </section>
+
+
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+      <!-- SKILLS -->
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+      <section id="skills" class="py-5 mt-3 py-lg-8">
+        <div class="container">
+          <!-- Badge -->
+          <div
+            class="title-badge d-inline-block mb-3 bg-primary text-primary bg-opacity-10 px-3 small"
+          >
+            Skills
+          </div>
+
+          <div class="row row-cols-1 row-cols-md-2 mt-md-5 center-v">
+            <!-- - - - - - - - -  -->
+            <!-- Description -->
+            <!-- - - - - - - - -  -->
+            <div class="col">
+              <!-- Title -->
+
+              <h2
+                class="mb-4 w-80 overflow-hidden mb-5"
+                data-tor-group=".fx => scroll:[@width(0;auto) @visibility(hidden;visible), {start: /10+5/, end: /10+5/}];"
+              >
+                As a web developer I am constantly improving my
+                <span class="text-primary">
+                  <span class="text-nowrap"
+                    ><span class="fx">s</span><span class="fx">k</span
+                    ><span class="fx">i</span><span class="fx">l</span
+                    ><span class="fx">l</span><span class="fx">s</span></span
+                  >
+
+                  <span
+                    class="text-body text-opacity-30 ms-n1"
+                    data-tor="loop:blink"
+                    >|</span
+                  >
+                </span>
+              </h2>
+
+              <!-- Description -->
+              <!-- <p class="mb-6">
+                Paragraph 1
+              </p> -->
+<!-- Description -->
+<p class="mb-6">Participated in designing and developing an application's components, and ensured high-quality code through testing and debugging. Also using RESTful APIs, and effectively communicated through presentations with the supervisor and project team. </p>
+              <!-- Skill progress -->
+              <div id="skill-progress">
+                <div class="skill mb-5">
+                  <h3 class="h6 small font-sans-serif mb-3">Github</h3>
+                  <div class="progress rounded-pill">
+                    <div
+                      class="progress-bar bg-secondary rounded-pill"
+                      role="progressbar"
+                      aria-valuenow="99"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      data-tor="inview:@width(0%;99%) exponential slower"
+                    >
+                      <span class="ms-auto me-3">99%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="skill mb-5">
+                  <h3 class="h6 small font-sans-serif mb-3">
+                    HTML, CSS &amp; JavaScript
+                  </h3>
+                  <div class="progress rounded-pill">
+                    <div
+                      class="progress-bar bg-secondary rounded-pill"
+                      role="progressbar"
+                      aria-valuenow="90"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      data-tor="inview:@width(0%;90%) exponential slower"
+                    >
+                      <span class="ms-auto me-3">90%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="skill mb-5">
+                  <h3 class="h6 small font-sans-serif mb-3">User Experience (UX) Design</h3>
+                  <div class="progress rounded-pill">
+                    <div
+                      class="progress-bar bg-secondary rounded-pill"
+                      role="progressbar"
+                      aria-valuenow="80"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      data-tor="inview:@width(0%;80%) exponential slower"
+                    >
+                      <span class="ms-auto me-3">80%</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="skill mb-5">
+                  <h3 class="h6 small font-sans-serif mb-3">PHP/Laravel</h3>
+                  <div class="progress rounded-pill">
+                    <div
+                      class="progress-bar bg-secondary rounded-pill"
+                      role="progressbar"
+                      aria-valuenow="70"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      data-tor="inview:@width(0%;70%) exponential slower"
+                    >
+                      <span class="ms-auto me-3">70%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end .col -->
+
+            <!-- - - - - - - - -  -->
+            <!-- Illustration -->
+            <!-- - - - - - - - -  -->
+            <div class="col">
+              <div class="px-4 ps-md-7 pe-md-0">
+                <a>
+                  <img src="assets/img/workspace.png" style='width:100%;' border="0" alt="Null">
+                </a>
+              </div>
+            </div>
+            <!-- end .col -->
+          </div>
+        </div>
+      </section>
+      <!-- end #skills -->
+
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+      <!-- EXPERIENCE -->
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+      <section id="experience" class="py-5 py-lg-8 overflow-hidden bg-light">
+        <div class="container py-4">
+          <div class="row row-cols-1 row-cols-md-2">
+            <!-- My education -->
+            <div
+              class="col"
+              data-tor-group="
+          .experience-box .date         => inview:reveal(up) delay(/+50ms/);
+          .experience-box .description  => inview:[pull.left(md) fade.in] delay(/+50ms/) wait(100ms) slow;
+        "
+            >
+              <!-- Badge -->
+              <div
+                class="title-badge d-inline-block mb-6 bg-primary text-primary bg-opacity-10 px-3 small"
+              >
+                Qualification
+              </div>
+              <!-- Title -->
+              <h2 class="ms-md-6 mb-5">My Education</h2>
+
+              <div class="experience-box row mb-3">
+                <div class="col-md-3 py-2 py-md-5">
+                  <small class="d-inline-block date">2017 - 2021</small>
+                </div>
+                <div class="description col-md-9 border-start py-md-5">
+                  <div class="mb-4">
+                    <h5 class="text-primary font-sans-serif">BSC</h5>
+                    <h4 class="font-sans-serif">(Hons) Computing</h4>
+                    <small class="text-secondary"
+                      >The British College (Leeds Beckett University)</small
+                    >
+                  </div>
+                  <p class="small">
+                    Key Modules: Website Development, Project Management,
+                    Computing Systems
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- end .col -->
+
+            <!-- My education -->
+            <div
+              class="col"
+              data-tor-group="
+          .experience-box .date         => inview:reveal(up) delay(/+50ms/);
+          .experience-box .description  => inview:[pull.left(md) fade.in] delay(/+50ms/) wait(100ms) slow;
+        "
+            >
+              <!-- Badge -->
+              <div
+                class="title-badge d-inline-block mb-6 bg-primary text-primary bg-opacity-10 px-3 small"
+              >
+                Experience
+              </div>
+              <!-- Title -->
+              <h2 class="ms-6 mb-5">My Experience</h2>
+
+              <div class="experience-box row mb-3">
+                <div class="col-md-3 py-2 py-md-5">
+                  <small class="d-inline-block date">2021 - 2022</small>
+                </div>
+                <div class="description col-md-9 border-start py-md-5">
+                  <div class="mb-4">
+                    <h5 class="text-primary font-sans-serif">
+                      Lucid Innovative Software
+                    </h5>
+                    <h4 class="font-sans-serif">Web Developer</h4>
+                    <small class="text-secondary">Kathmandu, Nepal </small>
+                  </div>
+                  <p class="small">
+                    After finishing my studies, I first concentrated on my work
+                    in Lucid Innovative Software, here I worked as a web
+                    developer.
+                  </p>
+                </div>
+              </div>
+
+              <!-- <div class="experience-box row mb-3">
+              <div class="col-md-3 py-2 py-md-5">
+                <small class="d-inline-block date">2010 - 2014</small>
+              </div>
+              <div class="description col-md-9 border-start py-md-5">
+                <div class="mb-4">
+                  <h5 class="text-magenta font-sans-serif">Dribble</h5>
+                  <h4 class="font-sans-serif">Art Direction</h4>
+                  <small class="text-secondary">London</small>
+                </div>
+                <p class="small">I&#39;ve got an opportunity to work in one of the best teams in Dribbble podcast designer.</p>
+              </div>
+            </div> -->
+            </div>
+            <!-- end .col -->
+          </div>
+          <!-- end .row -->
+        </div>
+        <!-- end .container -->
+      </section>
+      <!-- end #experience -->
+
+
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+      <!-- PORTFOLIO -->
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+      <section id="portfolio" class="py-5 py-lg-8">
+        <div class="container py-4">
+          <!-- Title -->
+          <div
+            class="title-badge d-inline-block mb-6 bg-primary text-primary bg-opacity-10 px-3 small"
+          >
+            Portfolio
+          </div>
+
+          <div class="row row-cols-1 row-cols-md-2 mb-7">
+            <div class="col">
+              <h2
+                class="mb-4 overflow-hidden mb-5"
+                data-tor-group=".fx => scroll:[@width(0;auto) @visibility(hidden;visible), {start: /10+5/, end: /10+5/}];"
+              >
+                Some of my
+                <span class="text-primary">
+                  <span class="text-nowrap"
+                    ><span class="fx">w</span><span class="fx">o</span
+                    ><span class="fx">r</span><span class="fx">k</span
+                    ><span class="fx">s</span></span
+                  >
+
+                  <span
+                    class="text-body text-opacity-30 ms-n1"
+                    data-tor="loop:blink"
+                    >|</span
+                  >
+                </span>
+              </h2>
+
+              <p class="mb-6">
+                I have worked on web projects as part of academic coursework.<br><br> As a web developer, I have worked for a few years in the Lucid Innovative Software sector, and I am responsible for testing and debugging their code, ensuring that the web application is secure and scalable.
+              </p>
+              <!-- <a href="#" class="btn-link btn-arrow">Explore more</a> -->
+            </div>
+            <div class="col">
+              <div class="row row-cols-md-2 mt-4">
+                <!-- col -->
+                <div class="col center-v">
+                  <div class="display-5 font-sans-serif text-primary me-4">
+                    01
+                  </div>
+                  <h3 class="h5 mb-0 font-sans-serif w-md-30">
+                    Years of Experience
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="tor-slider"
+            data-tor-slider="count(1 md::2) margin(80) indicators(true) add-trigger(active)"
+            data-tor-group=".portfolio-item => active(p):[scale.from(60%) rotate.from(10deg)];"
+          >    
+          <img
+          class="img-fluid border border-dark border-opacity-5 portfolio-item bg-white"
+          src="./assets/img/works/wfh_5.gif"
+          alt="illustration"
+        />
+            <img
+              class="img-fluid border border-dark border-opacity-5 portfolio-item bg-white"
+              src="./assets/img/works/wf1.gif"
+              alt="illustration"
+            />
+            <img
+              class="img-fluid border border-dark border-opacity-5 portfolio-item bg-white"
+              src="./assets/img/works/wfh_4.gif"
+              alt="illustration"
+            />
+            <img
+              class="img-fluid border border-dark border-opacity-5 portfolio-item bg-white"
+              src="./assets/img/works/wfh_3.gif"
+              alt="illustration"
+            />
+        
+            <img
+              class="img-fluid border border-dark border-opacity-5 portfolio-item bg-white"
+              src="./assets/img/works/wfh_6.gif"
+              alt="illustration"
+            />
+            <img
+            class="img-fluid border border-dark border-opacity-5 portfolio-item bg-white"
+            src="./assets/img/works/wfh_7.gif"
+            alt="illustration"/>
+        
+       
+          </div>
+        </div>
+        <!-- end .container -->
+      </section>
+      <!-- end #portfolio -->
+
+      
+      <!-- end #my-weapons -->
+
+      
+
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+      <!-- Connect -->
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+      <section id="contact" class="py-5 py-md-8">
+        <div class="container py-4">
+          <div class="row row-cols-1 row-cols-md-2 center-v">
+            <div class="col">
+              <!-- Badge -->
+              <div
+                class="title-badge d-inline-block mb-6 bg-primary text-primary bg-opacity-10 px-3 small"
+              >
+                Connect
+              </div>
+
+              <h2
+                class="mb-7 overflow-hidden mb-5"
+                data-tor-group=".fx => scroll:[@width(0;auto) @visibility(hidden;visible), {start: /10+5/, end: /10+5/}];"
+              >
+                Let&#39;s   
+
+                <span class="text-primary">
+                  <span class="text-nowrap">
+                    connect
+                  <span
+                    class="text-body text-opacity-30 ms-n1"
+                    data-tor="loop:blink"
+                    >|</span
+                  >
+                </span>
+              </h2>
+
+              <form
+                class="w-md-80 form-clean inputs-transparent"
+                data-tor-group=".form-control => !focus:[border(dark) bg(light)];"
+              >
+           
+                <div class="mb-2">
+
+                  <label for="contact-email" class="form-label opacity-70"
+                  > Email  <img src="assets/img/gmail.png" alt="Useful alt text" width="20" height="20" border="0"></label
+                >
+                  <input
+                    type="email"
+                    class="form-control p-3 border-bottom"
+                    id="contact-email"
+                    aria-describedby="contact-email"
+                  />
+                </div>
+                
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-arrow py-2 px-3 float-md-end w-100 w-sm-auto"
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
+
+            <div class="col">
+              <div
+                class="px-md-7 d-none d-md-block"
+                data-tor-group="
+            #vase-wfh-10_1_, #cupboard_1_ => inview:scale.from(0) originY(100%);
+            #female-wfh-10_1_       => inview:[pull.right(md) fade.in];
+            #computer-wfh-10_1_     => inview:[pull.left(md) fade.in] wait(300ms) click:class.toggle(active, {target: #illustration-contact});
+            #message-wfh-10_1_      => active(#illustration-contact):scale.to(0) hover:scale.to(85%) slow;
+            #message-head-wfh-10_1_ => active(#illustration-contact):scale.from(0) slow;
+            #message-wfh-10_1_ .illustration-loop     => loop:glow(3rem, {color: --bs-blue, duration: 3s});
+
+            .illustration-reveal    => delay(/+100ms/) slow;
+            .illustration-interaction => mouseX:@parallax(/+3/);
+          "
+              >
+              <a>
+                <img src="assets/img/people.png" style='width:100%;' border="0" alt="Null">
+              </a>
+    
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end .container -->
+      </section>
+      <!-- end #work-process -->
+
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+      <!-- FOOTER -->
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+      <section id="stay-connected">
+        <div class="container position-relative pb-1 overflow-hidden overflow-sm-visible">
+          <div class="row">
+  
+            <div class="col-md-3 my-3">
+              <div class="d-none d-md-block px-5">
+                <a>
+                  <img src="assets/img/man.png" style='width:100%;' border="0" alt="Null">
+                </a>
+              </div>
+            </div>
+  
+            <div class="col-md-4 offset-md-1 center-both my-3">
+              <div class="text-center" data-tor-group=".fx => inview:reveal(up) delay(/+100ms/);">
+
+                <p class="fx opacity-50 fw-500 mb-2">Anish Thapa</p>
+                <a href="mailto:#" class="fx text-dark h3 font-sans-serif d-block mb-3">anishthapa171@gmail.com</a>
+                <p class="fx">(+977)9824065758</p>
+              </div>
+            </div>
+          </div>
+          <!-- end .row -->
+  
+          <div class="position-absolute bottom-0 z-index-n1 w-100">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1363 74.1" class="w-100 overflow-visible" data-tor-group="path => mouseX:@parallax(/+3/);">
+              <path d="M0 73.9s85-29 117-29 86 25 111 27 323 5 354-13 58.6-58 106-58c39.5 0 74 19.9 94 36 26.5 21.4 90 30 122 26s338.5 11 338.5 11H0z" fill="#f8e9de" />
+              <path d="M208.1 74.1s81.9-27.9 127.1-30 84.1 11.3 123.1 15.4 76.9-29.8 112.9-33.9 92.3 9.2 134.4 24.6c42.1 15.4 96.4 34.9 142.6 13.3C894.3 42.1 916.8 0 1003 0s105.7 10.3 137.5 27.7 60.5 27.7 88.2 16.4c27.7-11.3 35.9-14.4 60.5 0s30.8 29.8 30.8 29.8l-1111.9.2z" fill="#f79682" />
+              <path d="M283 73.9s77-28 121-30 82 11 120 15 75-29 110-33 90 9 131 24 94 34 139 13 67-62 151-62 103 10 134 27 59 27 86 16 35-14 59 0 29 30 29 30H283z" fill="#77acd7" />
+            </svg>
+          </div>
+  
+        </div>
+        <!-- end .container -->
+      </section>
+      <!-- end #footer -->
+    </main>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!-- Scripts -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+    <!-- Bootstrap `.js` file -->
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
